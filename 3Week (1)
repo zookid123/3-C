@@ -1,0 +1,35 @@
+손글씨 인식 (OCR) 프로그램 실습하기
+
+OCR 이란? 
+
+OCR (Optical Character Recognition)
+: 이미지 속 글자를 컴퓨터가 읽을 수 있는 디지털 텍스트로 변환하는 기술
+
+MNIST 데이터셋이란 
+: MNIST = M)odified N)ational I)nstitute of S)tandards and T)echnology
+
+실습 순서
+
+1) 프로젝트 폴더 만들기
+
+mkdir VibeCoding
+cd VibeCoding
+mkdir Study-01
+cd Study-01
+
+2) 탐색기에서 터미널 열고 실행
+
+1. 탐색기에서 원하는 폴더로 이동
+2. 주소창을 클릭하고 cmd 입력 → Enter
+3. 해당 폴더에서 바로 터미널이 열립니다!
+
+3) 클로드 ai 에게 프롬포트 주기
+
+: 손글씨로 숫자를 입력하면 이것을 인식하는 코드를 만들어서
+실행해 줘. 모든 코드와 주석을 영어로 작성해 줘.
+
+클로드 코드가 하는일
+
+1. digit_recognition.py — 메인 프로그램 코드 생성
+2. requirements.txt — 필요한 패키지 목록 생성
+3. 자동으로 패키지 설치 및 프로그램 실행
