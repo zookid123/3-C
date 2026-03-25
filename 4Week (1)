@@ -1,0 +1,25 @@
+GitHub Push, Pull 이란?
+
+일단 "Git Hub" 는 원격 저장소이고
+
+Git push 란 로컬 저장소에서 만든 변경 사항(커밋)을 원격 저장소로 업로드, 로컬에서 원격으로 데이터 전송, 코드 공유 및 협업 필수
+
+Git pull 란 원격 저장소의 변경 사항을 로컬 저장소로 가져오는 명령어
+
+그리고 GitHub Push, Pull 사용 예 )
+
+Push
+#로컬에서 코드 변경 및 커밋 생성
+git add .
+git commit -m "커밋 메시지“
+#원격 저장소(깃허브)로 변경사항 전송
+git push origin <브랜치명>
+
+Pull
+git pull origin main
+
+push할 디렉토리로 이동하는 법
+1. git remote add origin https://github.com/anhr1234/it_lecture.git
+2. git branch -M main
+3. git push -u origin main → id / password 입력
+
