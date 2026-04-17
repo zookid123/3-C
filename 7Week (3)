@@ -1,0 +1,62 @@
+요청처리 메소드의 파라미터 유형이란?
+
+클라이언트가 보낸 HTTP 요청 데이터(GET/POST/URL 등)를 백엔드 컨트롤러 메소드의 
+매개변수로 매핑하여 받아내는 다양한 방식을 의미합니다. 주요 유형으로는
+
+1. @RequestParam : GET 방식의 쿼리 스트링(?name=...)이나 POST 방식의 form-data에서 단일 파라미터 값을 받을 때 사용합니다.
+
+2. @ModelAttribute : 클라이언트가 전달한 여러 파라미터를 자바 객체(DTO/VO)에 자동으로 바인딩하여 받을 때 사용합니다.
+
+3. @RequestBody : HTTP 요청 Body에 담긴 데이터(JSON/XML)를 객체로 변환하여 받을 때 사용합니다.
+
+4. @PathVariable : RESTful API에서 URL 경로(Path) 일부를 변수로 처리할 때 사용합니다 (예: /users/{id}).
+
+등이 있으며 , 요청 데이터 위치와 포맷에 따라 적절한 형식을 선택합니다.
+
+위 파라미터를 이용한 간단한 예시 코드 )
+
+java
+import org.springframework.web.bind.annotation.*;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/example")
+public class ParameterController {
+
+    // 1. Path Variable: URL 경로에 포함된 ID 추출
+    // 호출: GET /api/example/users/123
+    @GetMapping("/users/{id}")
+    public String getPath(@PathVariable("id") Long id) {
+        return "Path Variable ID: " + id;
+    }
+
+    // 2. Request Param: 쿼리 스트링 추출
+    // 호출: GET /api/example/search?name=kim&age=20
+    @GetMapping("/search")
+    public String getQuery(@RequestParam String name, @RequestParam int age) {
+        return "Query Param - Name: " + name + ", Age: " + age;
+    }
+
+    // 3. Request Body: JSON 객체 추출
+    // 호출: POST /api/example/save (Body: {"name": "Lee", "email": "test@com"})
+    @PostMapping("/save")
+    public String getBody(@RequestBody Map<String, Object> data) {
+        return "Request Body: " + data.toString();
+    }
+
+    // 4. Request Header: 헤더 정보 추출
+    // 호출: GET /api/example/header (Header: Authorization: MyToken)
+    @GetMapping("/header")
+    public String getHeader(@RequestHeader("Authorization") String token) {
+        return "Request Header Token: " + token;
+    }
+
+    // 5. Cookie Value: 쿠키 정보 추출
+    // 호출: GET /api/example/cookie (Cookie: sessionId=abc123)
+    @GetMapping("/cookie")
+    public String getCookie(@CookieValue("sessionId") String sessionId) {
+        return "Cookie Session ID: " + sessionId;
+    }
+}
+
+
