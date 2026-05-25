@@ -1,0 +1,31 @@
+MultipartFile 인터페이스
+
+• org.springframework.web.multipart.MultipartFile
+
+• 수신된 멀티파트 요청에서 업로드된 파일을 표현하는 인터페이스
+
+• 파일 내용은 메모리에 저장되거나 디스크에 임시로 저장됨
+
+• 개발자는 파일 내용을 처리하거나 영구 저장소에 복사해야 함
+
+• 임시 저장소의 파일은 요청 처리가 끝나면 삭제됨
+
+웹자바프로그래밍응용 - 파일 업로드 처리 10
+
+메소드 리턴 타입 설명
+
+1. getName() String 멀티파트 폼에서 매개변수 이름
+
+2. getContentType() String 파일의 콘텐츠 형식
+
+3. getOriginalFilename() String 클라이언트 파일 시스템에서 실제 파일 이름
+
+4. isEmpty() boolean 업로드한 파일이 있는지 여부
+
+5. getSize() long 파일의 바이트 단위 크기
+
+6. getBytes() byte[] 파일의 내용을 바이트 배열로 반환
+
+7. getInputStream() InputStream 파일의 내용을 읽을 수 있는 InputStream
+
+8. transferTo(File dest) void 파일을 지정한 다른 파일로 이동시킴
